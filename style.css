@@ -80,10 +80,12 @@ body {
     cursor: pointer;
 }
 
+.btn:active {
+    transform: scale(1);
+}
+
 .footer {
     text-align: center;
-    /* position: relative;
-    bottom: 1rem; */
 }
 
 .footer > p {
