@@ -66,7 +66,7 @@ body {
 
 }
 
-.btn {
+#btn {
     margin: auto;
     width: 65%;
     height: 2.3rem;
@@ -75,12 +75,12 @@ body {
     background-color: aquamarine;
 }
 
-.btn:hover {
+#btn:hover {
     transform: scale(1.03);
     cursor: pointer;
 }
 
-.btn:active {
+#btn:active {
     transform: scale(1);
 }
 
