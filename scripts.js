@@ -15,19 +15,19 @@ button.addEventListener('click', () => {
 function getAccess() {
     const responseType = 'token';
     const CLIENT_ID;
-    let url = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
-    window.location = url;
-    return getHashParams();
+    let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
+    window.location = redirect;
+    return getHashParams(window.location);
 }
 
 function getSong(a_t) {
     console.log(a_t);
 }
 
-function getHashParams() {
+function getHashParams(url) {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
-        q = window.location.hash.substring(1);
+        q = url.hash.substring(1);
     while ( e = r.exec(q)) {
         hashParams[e[1]] = decodeURIComponent(e[2]);
     }
