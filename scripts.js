@@ -1,19 +1,16 @@
 let login = document.getElementById('login');
-let scott = document.getElementById('scott')
+let scott = document.getElementById('scott');
+// let spotify = document.getElementById('spotify');
 
 let redirectUri = 'http://127.0.0.1:5500/index.html';
 let scopes = 'user-read-private playlist-read-private';
-
-let artist = document.getElementById('artist');
-let song = document.getElementById('song');
-let album = document.getElementById('album');
 
 login.addEventListener('click', getAccess);
 scott.addEventListener('click', getSong);
 
 function getAccess() {
     const responseType = 'token';
-    const CLIENT_ID = '60cca6ace06b49ceb88cf4f491d49bfe';
+    const CLIENT_ID = '';   /* RESET ID BEFORE DEPLOYING */
     let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
     window.location = redirect;
 }
@@ -35,15 +32,20 @@ function getSong() {
             console.log(`ERROR: ${err}`);
         });
         function appendData(data) {
+            /* gets random ARTIST*/
             // data = data['artists']['items'];
             // randomArtist = Math.floor(Math.random() * data.length);
             // let artist = data[randomArtist].id;
 
+            /* gets random TRACK */
             data = data['tracks']['items'];
             randomTrack = Math.floor(Math.random() * data.length);
             trackId = data[randomTrack].id;
 
             // console.log(data);
+
+            spotifyEmbed = `https://open.spotify.com/embed/track/${trackId}`
+            document.getElementById('spotify').src = spotifyEmbed;
         }
 }
 
