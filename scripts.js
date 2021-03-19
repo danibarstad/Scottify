@@ -1,4 +1,5 @@
-let button = document.getElementById('btn');
+let login = document.getElementById('login');
+let scott = document.getElementById('scott')
 
 let redirectUri = 'http://127.0.0.1:5500/index.html';
 let scopes = 'user-read-private playlist-read-private';
@@ -7,20 +8,18 @@ let artist = document.getElementById('artist');
 let song = document.getElementById('song');
 let album = document.getElementById('album');
 
-button.addEventListener('click', () => {
-    let acc_tok = getAccess();
-    getSong(acc_tok);
-});
+login.addEventListener('click', getAccess);
+scott.addEventListener('click', getSong);
 
 function getAccess() {
     const responseType = 'token';
-    const CLIENT_ID = '';
+    const CLIENT_ID = '60cca6ace06b49ceb88cf4f491d49bfe';
     let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
     window.location = redirect;
-    return getHashParams(window.location);
 }
 
-function getSong(token) {
+function getSong() {
+    let token = getHashParams(window.location);
     let url = `https://api.spotify.com/v1/search?q=scott&type=artist`;
     fetch(url, {
         method: 'GET', 
@@ -31,10 +30,16 @@ function getSong(token) {
         })
         .then(function(data) {
             console.log(data);
+            // appendData(data);
         })
         .catch(function(err) {
             console.log(`ERROR: ${err}`);
-        })
+        });
+        function appendData(data) {
+            data.forEach(obj => {
+                artist.innerHTML;
+            });
+        }
 }
 
 function getHashParams(url) {
