@@ -20,7 +20,7 @@ function getAccess() {
 
 function getSong() {
     let token = getHashParams(window.location);
-    let url = `https://api.spotify.com/v1/search?q=scott&type=artist`;
+    let url = `https://api.spotify.com/v1/search?q=scott&type=artist,track&limit=50`;
     fetch(url, {
         method: 'GET', 
         headers: { 'Authorization': 'Bearer ' + token}
@@ -29,16 +29,21 @@ function getSong() {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
-            // appendData(data);
+            appendData(data);
         })
         .catch(function(err) {
             console.log(`ERROR: ${err}`);
         });
         function appendData(data) {
-            data.forEach(obj => {
-                artist.innerHTML;
-            });
+            // data = data['artists']['items'];
+            // randomArtist = Math.floor(Math.random() * data.length);
+            // let artist = data[randomArtist].id;
+
+            data = data['tracks']['items'];
+            randomTrack = Math.floor(Math.random() * data.length);
+            trackId = data[randomTrack].id;
+
+            // console.log(data);
         }
 }
 
