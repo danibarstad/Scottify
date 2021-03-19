@@ -41,6 +41,9 @@ body {
 
 .func-item {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 500px;
     height: 500px;
 }
@@ -66,21 +69,22 @@ body {
 
 }
 
-#btn {
-    margin: auto;
+.btn {
+    display: flexbox;
     width: 65%;
     height: 2.3rem;
+    margin: 1rem;
     border: none;
     border-radius: 15px;
     background-color: aquamarine;
 }
 
-#btn:hover {
+.btn:hover {
     transform: scale(1.03);
     cursor: pointer;
 }
 
-#btn:active {
+.btn:active {
     transform: scale(1);
 }
 
