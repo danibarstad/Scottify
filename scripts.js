@@ -14,14 +14,27 @@ button.addEventListener('click', () => {
 
 function getAccess() {
     const responseType = 'token';
-    const CLIENT_ID;
+    const CLIENT_ID = '';
     let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
     window.location = redirect;
     return getHashParams(window.location);
 }
 
-function getSong(a_t) {
-    console.log(a_t);
+function getSong(token) {
+    let url = `https://api.spotify.com/v1/search?q=scott&type=artist`;
+    fetch(url, {
+        method: 'GET', 
+        headers: { 'Authorization': 'Bearer ' + token}
+    })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+        .catch(function(err) {
+            console.log(`ERROR: ${err}`);
+        })
 }
 
 function getHashParams(url) {
