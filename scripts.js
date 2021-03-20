@@ -1,7 +1,7 @@
 let login = document.getElementById('login');
 let track = document.getElementById('track');
 let artist = document.getElementById('artist');
-let redirectUri = 'http://127.0.0.1:5500/index.html';
+let redirectUri = 'http://127.0.0.1:5500/public/index.html';
 let scopes = 'user-read-private playlist-read-private';
 
 window.addEventListener('load', function() {
