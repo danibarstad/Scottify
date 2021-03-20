@@ -1,4 +1,6 @@
 let login = document.getElementById('login');
+let track = document.getElementById('track');
+let artist = document.getElementById('artist');
 let redirectUri = 'http://127.0.0.1:5500/index.html';
 let scopes = 'user-read-private playlist-read-private';
 
@@ -50,10 +52,15 @@ function getSong() {
             /* gets random TRACK */
             data = data['tracks']['items'];
             randomTrack = Math.floor(Math.random() * data.length);
-            trackId = data[randomTrack].id;
+            trackId = data[randomTrack]['id'];
+            trackName = data[randomTrack]['name'];
+            trackArtist = data[randomTrack]['artists'][0]['name'];
 
             spotifyEmbed = `https://open.spotify.com/embed/track/${trackId}`
             document.getElementById('spotify').src = spotifyEmbed;
+
+            track.innerHTML = trackName;
+            artist.innerHTML = trackArtist;
         }
 }
 
