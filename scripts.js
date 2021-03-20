@@ -1,12 +1,22 @@
 let login = document.getElementById('login');
-let scott = document.getElementById('scott');
-// let spotify = document.getElementById('spotify');
-
-let redirectUri = 'http://127.0.0.1:5500/loggedin.html';
+let redirectUri = 'http://127.0.0.1:5500/index.html';
 let scopes = 'user-read-private playlist-read-private';
 
-login.addEventListener('click', getAccess);
-scott.addEventListener('click', getSong);
+window.addEventListener('load', function() {
+    if (window.location.href === redirectUri) {
+        login.innerHTML = "LOGIN";
+    } else {
+        login.innerHTML = "SCOTT";
+    }
+});
+
+login.addEventListener('click', function() {
+    if (login.innerHTML === 'LOGIN') {
+        getAccess();
+    } else {
+        getSong();
+    }
+});
 
 function getAccess() {
     const responseType = 'token';
@@ -26,12 +36,12 @@ function getSong() {
             return response.json();
         })
         .then(function(data) {
-            appendData(data);
+            getSpotifyTrack(data);
         })
         .catch(function(err) {
             console.log(`ERROR: ${err}`);
         });
-        function appendData(data) {
+        function getSpotifyTrack(data) {
             /* gets random ARTIST*/
             // data = data['artists']['items'];
             // randomArtist = Math.floor(Math.random() * data.length);
@@ -41,8 +51,6 @@ function getSong() {
             data = data['tracks']['items'];
             randomTrack = Math.floor(Math.random() * data.length);
             trackId = data[randomTrack].id;
-
-            // console.log(data);
 
             spotifyEmbed = `https://open.spotify.com/embed/track/${trackId}`
             document.getElementById('spotify').src = spotifyEmbed;
