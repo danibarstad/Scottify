@@ -6,9 +6,9 @@ let scopes = 'user-read-private playlist-read-private';
 
 window.addEventListener('load', function() {
     if (window.location.href === redirectUri) {
-        login.innerHTML = "LOGIN";
+        login.innerHTML = 'LOGIN';
     } else {
-        login.innerHTML = "SCOTT";
+        login.innerHTML = 'Get a SCOTT Song!';
     }
 });
 
