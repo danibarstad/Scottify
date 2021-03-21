@@ -23,7 +23,7 @@ login.addEventListener('click', function() {
 
 function getAccess() {
     const responseType = 'token';
-    const CLIENT_ID = '';   /* RESET ID BEFORE DEPLOYING */
+    const CLIENT_ID = getenv('CLIENT_ID');
     let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
     window.location = redirect;
 }
