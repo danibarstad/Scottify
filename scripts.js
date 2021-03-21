@@ -1,7 +1,8 @@
 let login = document.getElementById('login');
 let track = document.getElementById('track');
 let artist = document.getElementById('artist');
-let redirectUri = 'http://127.0.0.1:5500/public/index.html';
+// let redirectUri = 'http://127.0.0.1:5500/public/index.html';    // for local
+let redirectUri = 'https://scottify-app.herokuapp.com/';        // for deploy
 let scopes = 'user-read-private playlist-read-private';
 
 window.addEventListener('load', function() {
