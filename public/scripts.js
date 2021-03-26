@@ -1,8 +1,9 @@
 let login = document.getElementById('login');
 let track = document.getElementById('track');
 let artist = document.getElementById('artist');
-let redirectUri = 'http://127.0.0.1:3000/';    // for local
-// let redirectUri = 'https://scottify-app.herokuapp.com/';        // for deploy
+
+// let redirectUri = 'http://127.0.0.1:3000/';    // for local
+let redirectUri = 'https://scottify-app.herokuapp.com/';        // for deploy
 let scopes = 'user-read-private playlist-read-private';
 
 window.addEventListener('load', function() {
@@ -23,8 +24,8 @@ login.addEventListener('click', function() {
 
 function getAccess() {
     const responseType = 'token';
-    const CLIENTID = '';
-    let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENTID}&scope=${scopes}&redirect_uri=${redirectUri}`;
+    const CLIENT_ID = '7f6d62d359004496a503b725201f7097';
+    let redirect = `https://accounts.spotify.com/authorize?response_type=${responseType}&client_id=${CLIENT_ID}&scope=${scopes}&redirect_uri=${redirectUri}`;
     window.location = redirect;
 }
 
