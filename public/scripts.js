@@ -7,7 +7,7 @@ let redirectUri = 'https://scottify-app.herokuapp.com/';        // for deploy
 let scopes = 'user-read-private playlist-read-private';
 
 window.addEventListener('load', function() {
-    if (window.location.href === redirectUri) {
+    if (window.location.href === redirectUri || window.location.href === 'scottify-app.herokuapp.com') {
         login.innerHTML = 'LOGIN';
     } else {
         login.innerHTML = 'Get a SCOTT Song!';
