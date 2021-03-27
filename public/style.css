@@ -84,6 +84,7 @@ body {
 }
 
 .btn:hover {
+    transition: .25s;
     transform: scale(1.03);
     cursor: pointer;
 }
@@ -93,6 +94,7 @@ body {
 }
 
 .btn:focus {
+    transition: .25s;
     box-shadow: 
         5px 5px 4px rgb(128, 128, 128);
 }
@@ -122,10 +124,10 @@ body {
 }
 
 .footer > p > a:hover, a:focus {
-    background-image: linear-gradient(
+    transition: 0.25s;
+    background: linear-gradient(
         180deg, 
         rgb(255, 255, 255) 33%,
         aquamarine
         );
-    transition: 0.7s;
 }
