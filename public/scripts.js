@@ -1,13 +1,13 @@
 let login = document.getElementById('login');
 let track = document.getElementById('track');
 let artist = document.getElementById('artist');
+let token = getHashParams(window.location);
 
-// let redirectUri = 'http://127.0.0.1:3000/';    // for local
-let redirectUri = 'https://scottify-app.herokuapp.com/';        // for deploy
+let redirectUri = 'https://scottify-app.herokuapp.com/' || 'http://127.0.0.1:3000/';
 let scopes = 'user-read-private playlist-read-private';
 
 window.addEventListener('load', function() {
-    if (window.location.href === redirectUri || window.location.href === 'scottify-app.herokuapp.com') {
+    if (!token) {
         login.innerHTML = 'LOGIN';
     } else {
         login.innerHTML = 'Get a SCOTT Song!';
