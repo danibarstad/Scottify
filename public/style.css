@@ -8,10 +8,14 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(
+    /* background: linear-gradient(
         rgb(56, 56, 56), 
         rgb(255, 255, 255) 33%
-        );
+        ); */
+    background-image: url("../img/woman_laughing.jpg");
+    background-size: 70% auto;
+    background-repeat: no-repeat;
+    background-position-x: right;
 }
 
 .container {
