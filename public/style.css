@@ -7,15 +7,16 @@
 }
 
 body {
-    height: 100vh;
-    /* background: linear-gradient(
-        rgb(56, 56, 56), 
-        rgb(255, 255, 255) 33%
-        ); */
-    background-image: url("../img/woman_laughing.jpg");
-    background-size: 70% auto;
+    /* height: 100vh; */
+}
+
+#background {
+    opacity: .65;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    background-image: url("img/woman_laughing.jpg");
     background-repeat: no-repeat;
-    background-position-x: right;
 }
 
 .container {
@@ -56,6 +57,15 @@ body {
 }
 
 @media (max-width: 1001px) {
+
+    #background {
+        position: absolute;
+        height: 100vh;
+        width: auto;
+        background-image: url("img/woman_laughing.jpg");
+        background-repeat: no-repeat;
+        background-position-x: right;
+    }
 
     .container {
         display: flex;
