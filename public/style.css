@@ -6,9 +6,9 @@
     padding: 0%;
 }
 
-body {
-    /* height: 100vh; */
-}
+/* body {
+    height: 100vh;
+} */
 
 #background {
     opacity: .65;
@@ -59,12 +59,10 @@ body {
 @media (max-width: 1001px) {
 
     #background {
-        position: absolute;
         height: 100vh;
         width: auto;
         background-image: url("img/woman_laughing.jpg");
-        background-repeat: no-repeat;
-        background-position-x: right;
+        left: -50%;
     }
 
     .container {
